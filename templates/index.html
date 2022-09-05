@@ -1,15 +1,27 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-
-  <li class="bg-red-400">Ok i am fine</li>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home page {% endblock title %}
+{% block body %}
+ <style>
+  .jumbotron{
+    font-style: italic;
+  }
+  .container{
+    background-color: aquamarine;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+</style>
+<h1 class="text-3xl font-bold p-6">
+  Welcome To My Persoonal Blog.
+</h1>
+{% for post in posts %}
+ <div class="jumbotron jumbotron-fluid jumbo-color">
+   <div class="container">
+    <h3 class=" text-3xl font-bold m-20 font-weight-bold">{{post.title}}</h3>
+    <p class=" text-2xl m-20">{{post.desc}}</p>
+   </div>
+ </div>
+{% endfor %}
+{% endblock body %}
